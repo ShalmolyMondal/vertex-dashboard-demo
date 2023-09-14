@@ -1,6 +1,6 @@
-
 import Login from './pages/login'
-
+//import Login from './pages/login1'
+import Sidebar from './components/Sidebar'
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       {/* <Login /> */}
       <Login />
       {/* <Login3 /> */}
+      <Sidebar />
     </div>
   );
 }
