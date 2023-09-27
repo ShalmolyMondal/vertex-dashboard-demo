@@ -1,6 +1,6 @@
 import React from "react";
 //import Navbar from "./Navbar";
-import Sidebar from "./Sidebar";
+import SidebarLight from "./SidebarLight";
 //import Header from "./Header";
 import { Outlet } from "react-router-dom";
 
@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <>
       <div className="flex flex-auto h-screen bg-gray-200">
-        <Sidebar />
+        <SidebarLight />
         {/* <div className="bg-orange-200">Header</div> */}
         <div className="grow">
           {/* <Navbar /> */}

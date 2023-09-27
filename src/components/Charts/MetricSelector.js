@@ -5,6 +5,7 @@ const MetricSelector = ({ selectedMetrics, onMetricChange }) => {
 
   const handleMetricChange = (metric) => {
     // Toggle the selected state of the metric
+    console.log("Selected Metric:", metric);
     if (selectedMetrics.includes(metric)) {
       onMetricChange(selectedMetrics.filter((item) => item !== metric));
     } else {
@@ -13,16 +14,16 @@ const MetricSelector = ({ selectedMetrics, onMetricChange }) => {
   };
 
   return (
-    <div>
+    <div className="ml-3 font-bold text-sm">
       <h3>Select Metrics:</h3>
       {metrics.map((metric) => (
         <label key={metric} className="flex items-center">
           <input
             type="checkbox"
             value={metric}
-            //checked={selectedMetrics.includes(metric)}
+            checked={selectedMetrics.includes(metric)}
             onChange={() => handleMetricChange(metric)}
-            className="mr-2"
+            className="mr-3"
           />
           {metric}
         </label>

@@ -7,9 +7,9 @@ const ChartSelector = ({ handleChartTypeChange }) => {
   };
 
   return (
-    <div className="font-bold font-xl mb-4">
-      <label className="mr-2">Select Chart Type: </label>
-      <select className="border p-4 rounded" onChange={handleChange}>
+    <div className="font-bold font-xl mb-2 ml-2">
+      <label className="mr-3 py-2">Select Chart Type: </label>
+      <select className="border py-2 rounded" onChange={handleChange}>
         <option value="line">Line Chart</option>
         <option value="bar">Bar Chart</option>
         <option value="area">Area Chart</option>

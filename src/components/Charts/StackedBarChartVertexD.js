@@ -3,7 +3,7 @@ import { ResponsiveBar } from "@nivo/bar";
 import Papa from "papaparse";
 //import { SensorMockDataSummary as data } from "./data/sensor-summary-mock-data";
 
-const SensorDataOverviewV = () => {
+const SensorDataOverviewVertexD = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -131,4 +131,4 @@ const SensorDataOverviewV = () => {
     />
   );
 };
-export default SensorDataOverviewV;
+export default SensorDataOverviewVertexD;

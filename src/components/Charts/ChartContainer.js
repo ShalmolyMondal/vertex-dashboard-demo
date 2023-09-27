@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ChartSelector from "./ChartSelector";
-import LineChart from "./LineChart";
+import LineChartApex from "./LineChart";
 //import TempOverview from "./TempOverview";
 //import BarChartApex from "./BarChartApex";
 import NegetiveAreaChart from "./NegetiveAreaChart";
@@ -9,7 +9,7 @@ import GroupedBarChart from "./GroupedBarChart";
 
 const ChartContainer = () => {
   const [selectedChart, setSelectedChart] = useState("line");
-  const [selectedMetric, setSelectedMetric] = useState("co2");
+  const [selectedMetrics, setSelectedMetric] = useState("co2");
 
   const handleChartTypeChange = (chartType) => {
     setSelectedChart(chartType);
@@ -23,13 +23,13 @@ const ChartContainer = () => {
 
   switch (selectedChart) {
     case "line":
-      chartComponent = <LineChart metric={selectedMetric} />;
+      chartComponent = <LineChartApex selectedMetrics={selectedMetrics} />;
       break;
     case "bar":
-      chartComponent = <GroupedBarChart metric={selectedMetric} />;
+      chartComponent = <GroupedBarChart metric={selectedMetrics} />;
       break;
     case "area":
-      chartComponent = <NegetiveAreaChart metric={selectedMetric} />;
+      chartComponent = <NegetiveAreaChart metric={selectedMetrics} />;
       break;
     default:
       chartComponent = null;
@@ -40,7 +40,11 @@ const ChartContainer = () => {
   return (
     <div>
       <ChartSelector handleChartTypeChange={handleChartTypeChange} />
-      <MetricSelector handleMetricChange={handleMetricChange} />
+      <MetricSelector
+        selectedMetrics={selectedMetrics}
+        onMetricChange={handleMetricChange}
+      />
+      {/* <MetricSelector handleMetricChange={handleMetricChange} /> */}
       <div style={{ height: chartHeight }}>{chartComponent}</div>;
     </div>
   );

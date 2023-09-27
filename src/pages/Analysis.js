@@ -17,8 +17,7 @@ const Analysis = () => {
   // };
 
   return (
-    <div>
-      <h1> Chart Type</h1>
+    <div className="bg-white rounded-xl">
       <ChartContainer />
       {/* <h3>CO2 and Temperature Chart</h3> */}
       {/* <MetricContainer /> */}

@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
 import Dashboard from "./pages/Dashboard";
 import Analysis from "./pages/Analysis";
-// import Alerts from "./pages/Alert";
+import Alerts from "./pages/Alert";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           {/* <Route path='/dashboard' element={<Dashboard />} /> */}
           <Route path="analysis" element={<Analysis />} />
-          {/* <Route path="/alert" element={<Alerts />} /> */} */}
+          <Route path="alert" element={<Alerts />} /> */}
         </Route>
       </Routes>
       {/* </Layout> */}

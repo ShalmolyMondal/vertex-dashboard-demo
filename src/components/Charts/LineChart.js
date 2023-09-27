@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "react-apexcharts";
 
-const LineChart = () => {
+const LineChartApex = (selectedMetrics) => {
   const options = {
     chart: {
       id: "line-chart",
@@ -38,4 +38,4 @@ const LineChart = () => {
   return <Chart options={options} series={series} type="line" height={350} />;
 };
 
-export default LineChart;
+export default LineChartApex;
