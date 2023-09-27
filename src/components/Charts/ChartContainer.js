@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import ChartSelector from "./ChartSelector";
-import LineChartApex from "./LineChartApex";
+import LineChart from "./LineChart";
 //import TempOverview from "./TempOverview";
 //import BarChartApex from "./BarChartApex";
 import NegetiveAreaChart from "./NegetiveAreaChart";
 import MetricSelector from "./MetricSelector";
-import GroupedBarChart from "./GroupedBarChartApex";
+import GroupedBarChart from "./GroupedBarChart";
 
 const ChartContainer = () => {
   const [selectedChart, setSelectedChart] = useState("line");
@@ -23,7 +23,7 @@ const ChartContainer = () => {
 
   switch (selectedChart) {
     case "line":
-      chartComponent = <LineChartApex metric={selectedMetric} />;
+      chartComponent = <LineChart metric={selectedMetric} />;
       break;
     case "bar":
       chartComponent = <GroupedBarChart metric={selectedMetric} />;
