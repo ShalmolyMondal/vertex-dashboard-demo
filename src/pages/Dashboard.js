@@ -4,7 +4,8 @@ import SensorStatGrid from "../components/SensorStatGrid";
 // import DeviceStatusGrid from "../components/widgets/DeviceStatus";
 // import SensorStatGrid from "../components/SensorStatGrid";
 // import SensorDataOverview from "../components/Charts/StackedBarChartNivo";
-// import SensorDataOverviewV from "../components/Charts/StackedBarChartV";
+//import SensorDataOverviewVertex from "../components/Charts/StackedBarChartVertexD";
+
 const Dashboard = () => {
   return (
     <div className="flex flex-col gap-4 dark:text-black">
@@ -15,13 +16,19 @@ const Dashboard = () => {
       <div className="bg-gray-200 flex gap-8">{/* <SensorStatGrid /> */}</div>
 
       {/* <SensorDataOverview /> */}
-
       <div
         className="bg-white flex rounded-lg gap-2"
         style={{ height: "400px" }}
       >
         <SensorDataOverview />
       </div>
+
+      {/* <div
+        className="bg-white flex rounded-lg gap-2"
+        style={{ height: "400px" }}
+      >
+        <SensorDataOverviewVertex />
+      </div> */}
     </div>
   );
 };

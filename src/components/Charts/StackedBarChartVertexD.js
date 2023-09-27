@@ -1,14 +1,50 @@
+import React, { useState, useEffect } from "react";
 import { ResponsiveBar } from "@nivo/bar";
-import { SensorMockDataSummary as data } from "./data/sensor-summary-mock-data";
+import Papa from "papaparse";
+//import { SensorMockDataSummary as data } from "./data/sensor-summary-mock-data";
 
-const SensorDataOverviewVertex = () => {
+const SensorDataOverviewV = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("/data/mock-sensor-data.csv");
+      const reader = response.body.getReader();
+      const result = await reader.read();
+      const decoder = new TextDecoder("utf-8");
+      const csvString = decoder.decode(result.value);
+
+      Papa.parse(csvString, {
+        header: true,
+        dynamicTyping: true,
+        complete: (result) => {
+          const transformedData = result.data.map((item, index) => ({
+            id: index, // Adding a unique ID for each entry
+            deviceID: item[0],
+            sensorID: item[1],
+            parameter: item[2],
+            timestamp: item[3],
+            value: item[4],
+          }));
+
+          setData(transformedData);
+        },
+      });
+    };
+
+    fetchData();
+  }, []);
+
+  if (!data) return null;
+
   return (
     <ResponsiveBar
       data={data}
-      keys={["temperature", "co2", "PM2.5", "PM10", "TVOC"]}
-      indexBy="month"
+      keys={["value"]}
+      indexBy="parameter"
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       padding={0.3}
+      //height={400}
       valueScale={{ type: "linear" }}
       indexScale={{ type: "band", round: true }}
       //colors={{ scheme: "nivo" }}
@@ -40,10 +76,10 @@ const SensorDataOverviewVertex = () => {
           spacing: 10,
         },
       ]}
-      // borderColor={{
-      //   from: "color",
-      //   modifiers: [["darker", 1.6]],
-      // }}
+      borderColor={{
+        from: "color",
+        modifiers: [["darker", 1.6]],
+      }}
       axisTop={null}
       axisRight={null}
       axisBottom={{
@@ -95,4 +131,4 @@ const SensorDataOverviewVertex = () => {
     />
   );
 };
-export default SensorDataOverviewVertex;
+export default SensorDataOverviewV;
